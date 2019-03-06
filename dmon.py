@@ -93,7 +93,7 @@ class Client:
         if self.__useTLS:
             #certReq = ssl.CERT_NONE
             certReq = ssl.CERT_REQUIRED
-            self.sock = ssl.wrap_socket(self.sock, ssl_version=ssl.PROTOCOL_TLS, keyfile="pki/client.key", 
+            self.sock = ssl.wrap_socket(self.sock, ssl_version=ssl.PROTOCOL_SSLv23, keyfile="pki/client.key",
                 certfile="pki/client.crt", cert_reqs=certReq, ca_certs="pki/rootCA.crt", ciphers="ADH-AES256-SHA256:ALL")
         try:
             self.sock.connect((self.hostIP, int(self.port)))
